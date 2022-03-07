@@ -1,0 +1,70 @@
+.story-container{
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #12295d;
+    padding: 0.15rem;
+    &:hover{
+        border-radius: 3px;
+        border-top: 2px solid #12295d;
+        border-left: 2px solid #12295d;
+        border-right: 2px solid #12295d;
+        margin-top:-2px;
+        margin-left:-2px;
+        margin-right:-2px;
+        cursor: pointer;
+    }
+    a {
+        color: black;
+        text-decoration: none;
+    }
+      
+}
+.column-container{
+    display: flex;
+    flex-direction: column;
+    //OBS: Nextjs\Image tag is wrapped by 2 span tags, that's why align-self: center doesn't work on img tag.
+    span {
+        align-self: center;
+        flex: none;
+    }
+    p {
+        text-align: center;
+    }
+}
+
+.main-story-container{
+    justify-content: space-between;
+}
+
+.score{
+    display: flex;
+    align-self: flex-start;
+    justify-content: center;
+    min-width: 23px;
+    p{
+        margin:0.1rem;
+    }
+}
+
+.title-date-head{
+    justify-content: flex-start;
+    margin-left: 0.5rem;
+    h4{
+        margin-top: 0;
+        margin-bottom:0;
+    }
+}
+
+.row-container{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    span {
+        align-self: flex-start;
+    }
+}
+
+.user-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
