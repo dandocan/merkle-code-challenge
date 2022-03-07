@@ -2,10 +2,11 @@ import style from "../styles/story.module.scss";
 import Image from "next/image";
 import Date from "./date";
 
-
+//Component for each individual story displayed on Home page.
+//Props: dark mode boolean; story json with all the data for an individual story from the API.
 export default function Story(
     {
-        story
+        story, dark
     } : {
         story : {
             "by": string,
@@ -15,12 +16,12 @@ export default function Story(
             "score":number,
             "url":string,
             "karma":number
-        }
+        },
+        dark: boolean
     }
-) {
-    return(
-        <div className={`${style["column-container"]}  ${style["story-container"]}`}>
-            <a href={story.url} target="_blank" rel="noreferrer">
+    ) {
+        return(
+            <div className={`${style["column-container"]}  ${style["story-container"]}`}>
                 <div className={`${style["row-container"]}  ${style["main-story-container"]}`}>
                     <div className={`${style["row-container"]}`}>
                         <Image 
@@ -29,11 +30,31 @@ export default function Story(
                             height={100}
                         />
                         <div className={`${style["column-container"]} ${style["title-date-head"]}`}>
-                            <h4>{story.title}</h4>
+                            <a href={story.url} target="_blank" rel="noreferrer">
+                                <h4>{story.title}</h4>
+                            </a>
                             <Date timestamp={story.time}></Date>
                         </div>
                     </div>
-                    <div className={`${style["column-container"]} ${style["score"]}`}>
+                    {(dark)?(
+                        <div className={`${style["column-container"]} ${style["score"]}`}>
+                            <Image
+                                src="/images/upvote-dm.svg"
+                                width={23}
+                                height={23}
+                            />
+                            <p>
+                                {story.score}
+                            </p>
+                            <Image
+                                src="/images/downvote-dm.svg"
+                                width={23}
+                                height={23}
+                            />
+                        </div>
+
+                    ):(
+                        <div className={`${style["column-container"]} ${style["score"]}`}>
                         <Image
                             src="/images/upvote.svg"
                             width={23}
@@ -47,7 +68,9 @@ export default function Story(
                             width={23}
                             height={23}
                         />
-                    </div>
+                    </div> 
+                    )
+                }
                 </div>
                 <div className={style["user-section"]}>
                     <p>by </p>
@@ -58,7 +81,6 @@ export default function Story(
                     />
                     <p>{story.by} ({story.karma} karma)</p>
                 </div>
-            </a>
         </div>
     )
 }
