@@ -19,6 +19,7 @@ export default function Layout({
 				/>
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
+				<title>{siteTitle}</title>
 			</Head>
 			<header className={styles.header}>
 				<h1 className={styles["heading-title"]}>{name}</h1>
