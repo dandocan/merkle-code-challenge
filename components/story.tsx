@@ -20,7 +20,7 @@ export default function Story(
 ) {
     return(
         <div className={`${style["column-container"]}  ${style["story-container"]}`}>
-            <a href={story.url} target="_blank">
+            <a href={story.url} target="_blank" rel="noreferrer">
                 <div className={`${style["row-container"]}  ${style["main-story-container"]}`}>
                     <div className={`${style["row-container"]}`}>
                         <Image 
