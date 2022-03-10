@@ -24,7 +24,7 @@ export default function Home({stories, dark, setDark}) {
 }
 
 //Retrieving stories from API
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
     const stories = await getOrderedTenRandomStories();
     return {
       	props: {
