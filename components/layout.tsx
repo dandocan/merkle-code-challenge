@@ -13,16 +13,17 @@ export default function Layout({
 	dark: boolean,
 	setDark: Function
 }) {
-	
+	const darkStyle = dark ? (styles["dark-mode"]) : ''
 	return (
 		<div className={`
-			${(dark)?styles["dark-mode"]:styles.container}
+			${styles.container}
+			${darkStyle}
 		`}>
 			<Head>
 				<link rel="icon" href="/icon.png" />
 				<meta
-				name="description"
-				content="A demonstration app meant for recruiters."
+					name="description"
+					content="A demonstration app meant for recruiters."
 				/>
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
@@ -31,8 +32,8 @@ export default function Layout({
 			<header className={styles.header}>
 				<div></div>
 				<h1 className={styles["heading-title"]}>{name}</h1>
-				<div className={`${styles["theme-switch-wrapper"]}`}>
-					<label className={`${styles["theme-switch"]}`} htmlFor="checkbox">
+				<div className={styles["theme-switch-wrapper"]}>
+					<label className={styles["theme-switch"]} htmlFor="checkbox">
 						<input 
 							type="checkbox" 
 							id="checkbox" 
