@@ -20,6 +20,8 @@ export default function Story(
         dark: boolean
     }
     ) {
+        const upvotePath = (dark) ? ("/images/upvote-dm.svg") : ("/images/upvote.svg")
+        const downvotePath = (dark) ? ("/images/downvote-dm.svg") : ("/images/downvote.svg")
         return(
             <div className={`${style["column-container"]}  ${style["story-container"]}`}>
                 <div className={`${style["row-container"]}  ${style["main-story-container"]}`}>
@@ -36,27 +38,9 @@ export default function Story(
                             <Date timestamp={story.time}></Date>
                         </div>
                     </div>
-                    {(dark)?(
-                        <div className={`${style["column-container"]} ${style["score"]}`}>
-                            <Image
-                                src="/images/upvote-dm.svg"
-                                width={23}
-                                height={23}
-                            />
-                            <p>
-                                {story.score}
-                            </p>
-                            <Image
-                                src="/images/downvote-dm.svg"
-                                width={23}
-                                height={23}
-                            />
-                        </div>
-
-                    ):(
-                        <div className={`${style["column-container"]} ${style["score"]}`}>
+                    <div className={`${style["column-container"]} ${style["score"]}`}>
                         <Image
-                            src="/images/upvote.svg"
+                            src={upvotePath}
                             width={23}
                             height={23}
                         />
@@ -64,13 +48,11 @@ export default function Story(
                             {story.score}
                         </p>
                         <Image
-                            src="/images/downvote.svg"
+                            src={downvotePath}
                             width={23}
                             height={23}
                         />
                     </div> 
-                    )
-                }
                 </div>
                 <div className={style["user-section"]}>
                     <p>by </p>

@@ -27,8 +27,8 @@ export default function Home({stories, dark, setDark}) {
 export async function getServerSideProps(context) {
     const stories = await getOrderedTenRandomStories();
     return {
-      	props: {
-        	stories
-    	}
+		props: {
+			stories
+		}
     }
 }
